@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Blue Side Borders */
+        .blue-design {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background: #3498db;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        .blue-design-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: #3498db;
+            clip-path: polygon(100% 100%, 100% 0, 0 100%);
+        }
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        /* Login Card */
+        .login-card {
+            background: white;
+            padding: 40px 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 26px;
+            color: #4169E1;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px #888;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4169E1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #3659b3;
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            color: #4169E1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blue-design"></div>  <!-- Blue side design -->
+        <div class="blue-design-bottom"></div> <!-- Bottom blue design -->
+        
+        <div class="logo">
+            <img src="ismllogo.jpg" alt="Logo"> <!-- Logo at the top right -->
+        </div>
+        
+        <div class="login-card">
+            <h2 class="title">Student login Login</h2>
+            <form>
+                <input type="text" placeholder="Email / User Id" required>
+                <input type="password" placeholder="Password" required>
+
+               
+            </form>
+
+            <a href="#" class="forgot-password">Forgotten Password?</a>
+            <a href="student-dashboard.html"><button>Submit</button></a>
+        </div>
+    </div>
+</body>
+</html>

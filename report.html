@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    header {
+      background-color: #42a5f5;
+      color: white;
+      padding: 15px 20px;
+      height: 65px;
+      position: relative;
+      text-align: center;
+    }
+
+    header img {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    header h1 {
+      margin: 0;
+      line-height: 80px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      padding: 6px 12px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .filters select {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 180px;
+    }
+
+    .radio-section {
+      margin: 10px 0 20px 0;
+    }
+
+    .radio-section label {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .radio-section input[type="radio"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #42a5f5;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .radio-section input[type="radio"]:checked::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-color: #42a5f5;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+    }
+
+    .submit-button {
+      padding: 8px 20px;
+      background-color: #42a5f5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .big-box {
+      border: 1px solid #333;
+      border-radius: 6px;
+      width: 80%;
+      height: 300px;
+      margin: auto;
+      padding: 20px;
+      position: relative;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+
+    .export-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #e0e0e0;
+    }
+
+    #boxContent table {
+      width: 60%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+
+    #boxContent th, #boxContent td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    #boxContent th {
+      background-color: #f0f0f0;
+      width: 40%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="ismllogo.jpg" alt="ISML Logo">
+    <h1>Report</h1>
+    <button class="back-button" onclick="Back()">Back</button>
+  </header>
+  <br><br>
+  <script>
+            function Back() {
+            window.history.back(); // Go to the previous page
+        }
+        
+  </script>
+
+  <div class="radio-section">
+    <label>
+      <input type="radio" name="sessionType" value="ongoing" checked onclick="toggleWeek(true)"> Ongoing Session
+    </label>
+    <label>
+      <input type="radio" name="sessionType" value="completed" onclick="toggleWeek(false)"> Completed Session
+    </label>
+  </div>
+
+  <div class="filters">
+    <select id="department">
+      <option>Department</option>
+      <option>Physics</option>
+      <option>Chemistry</option>
+      <option>Maths</option>
+    </select>
+
+    <select id="shift">
+      <option>Shift</option>
+      <option>Shift 1</option>
+      <option>Shift 2</option>
+      <option>Shift 3</option>
+      <option>Shift 4</option>
+      <option>Shift 5</option>
+    </select>
+
+    <select id="language">
+      <option>Language</option>
+      <option>French</option>
+      <option>German</option>
+      <option>Japanese</option>
+    </select>
+
+    <select id="week">
+      <option>Week</option>
+      <option>Week 1</option>
+      <option>Week 2</option>
+      <option>Week 3</option>
+      <option>Week 4</option>
+    </select>
+  </div>
+
+  <div class="radio-section">
+    <input type="radio" id="summary" name="view" value="summary" checked>
+    <label for="summary">Summary</label>
+    <input type="radio" id="detail" name="view" value="detail">
+    <label for="detail">Detail</label>
+  </div>
+
+  <button class="submit-button" onclick="submitForm()">Submit</button>
+
+  <br><br>
+
+  <div class="big-box" id="bigBox">
+    <button class="export-button">Export</button>
+    <div id="boxContent" style="margin-top: 40px; font-size: 20px;">Please click Submit to view report</div>
+  </div>
+
+  <script>
+    function toggleWeek(show) {
+      document.getElementById("week").style.display = show ? "inline-block" : "none";
+    }
+
+    function submitForm() {
+      const sessionType = document.querySelector('input[name="sessionType"]:checked').value;
+      const view = document.querySelector('input[name="view"]:checked').value;
+      const dept = document.getElementById("department").value;
+      const shift = document.getElementById("shift").value;
+      const lang = document.getElementById("language").value;
+      const week = document.getElementById("week").value;
+      const boxContent = document.getElementById("boxContent");
+
+      if (view === 'summary') {
+        boxContent.innerHTML = `
+          <strong>Summary Report</strong><br><br>
+          <table>
+            <tr><th>Department</th><td>${dept}</td></tr>
+            <tr><th>Shift</th><td>${shift}</td></tr>
+            <tr><th>Language</th><td>${lang}</td></tr>
+            ${sessionType === 'ongoing' ? `<tr><th>Week</th><td>${week}</td></tr>` : ''}
+            <tr><th>Total Session Count</th><td>24</td></tr>
+          </table>
+        `;
+      } else {
+        boxContent.innerHTML = `
+          <strong>Detailed Report</strong><br><br>
+          <table>
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th>Language</th>
+                <th>Week</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Student 1</td><td>${dept}</td><td>${lang}</td><td>${sessionType === 'ongoing' ? week : 'N/A'}</td></tr>
+              <tr><td>Student 2</td><td>${dept}</td><td>${lang}</td><td>${sessionType === 'ongoing' ? week : 'N/A'}</td></tr>
+              <tr><td>Student 3</td><td>${dept}</td><td>${lang}</td><td>${sessionType === 'ongoing' ? week : 'N/A'}</td></tr>
+            </tbody>
+          </table>
+        `;
+      }
+    }
+
+    window.onload = function() {
+      toggleWeek(true);
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session 1 - Details</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar with Back Button -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary w-100">
+        <div class="container-fluid">
+            <button class="btn btn-light btn-sm" onclick="goBack()" style="font-size: 18px; font-weight: bold;">⬅</button>
+            <a class="navbar-brand ml-3" href="#">Student Dashboard</a>
+            <button class="btn btn-light btn-sm ml-auto" onclick="goToDashboard()">Home</button>
+        </div>
+    </nav>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Go to the previous page
+        }
+        
+        function goToDashboard() {
+            window.location.href = "student-dashboard.html"; // Change to your actual dashboard page
+        }
+    </script>
+
+    <div class="session-container">
+        <h2>Introduction To French</h2>
+        <p>📘 Welcome to your first French session! Here, you’ll learn how to introduce yourself and pronounce the French alphabet correctly.</p>
+
+        <div class="session-content">
+            <!-- Learning Points -->
+            <div class="learn-box">
+                <h3>📌 What You’ll Learn Today</h3>
+                <ul>
+                    <li>✅ How to pronounce the French alphabet.</li>
+                    <li>✅ How to introduce yourself in simple French sentences.</li>
+                    <li>✅ Basic sentence structure in French.</li>
+                </ul>
+            </div>
+
+            <!-- Live Session Info -->
+            <div class="status-box">
+                <div class="status-header">
+                    <span class="status">Status</span>
+                    <span class="live">Live</span>
+                </div>
+                <p>📅 Date: [19-March-2025]</p>
+                <p class="blink-text">📌 Click batch timing to join a live webinar</p>
+
+                <div class="session-times">
+                    <div class="column">
+                        <span class="lang-button english"><b>English</b></span>
+                        <ul>
+                            <li>
+                                <button class="btn btn-success btn-sm ms-2" onclick="window.location.href='newpage.html';">
+                                    06:00 - 07:00 am
+                                </button>
+                            </li>
+                            <li>08:00 - 09:00 am</li>
+                            <li>10:00 - 11:00 am</li>
+                            <li>12:00 - 1:00 pm</li>
+                            <li>02:00 - 03:00 pm</li>
+                            <li>04:00 - 05:00 am</li>
+                            <li>06:00 - 07:00 am</li>
+                            <li>08:00 - 09:00 am</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <span class="lang-button english"><b>தமிழ்</b></span>
+
+                        <ul>
+                            <li>06:30 - 07:30 am</li>
+                            <li>08:30 - 09:30 am</li>
+                            <li>10:30 - 11:30 am</li>
+                            <li>12:30 - 1:30 am</li>
+                            <li>02:30 - 03:30 am</li>
+                            <li>04:30 - 05:30 am</li>
+                            <li>06:30 - 07:30 am</li>
+                            <li>08:30 - 09:30 am</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

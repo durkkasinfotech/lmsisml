@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container-fluid">
+        <!-- Logo and Welcome Message -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="ismllogo.jpg" alt="Logo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+            Welcome [Student Name]
+        </a>
+
+        <!-- Profile Icon with Dropdown & Logout Button -->
+        <div class="d-flex align-items-center ml-auto">
+            <!-- Profile Dropdown -->
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-2x"></i> <!-- Profile Icon -->
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#">Change Password</a>
+                </div>
+            </div>
+
+            <!-- Logout Button -->
+            <button class="btn btn-danger btn-sm ml-3" onclick="logout()">Logout</button>
+
+            <!-- Back Button (Now on the Right Side) -->
+  <!-- Back Button with Message -->
+  <div class="d-flex align-items-center ml-3">
+    <button class="btn btn-outline-primary btn-sm" onclick="goBack()" style="font-size: 16px; font-weight: bold;">
+        ⬅ Back
+    </button>
+</div>        </div>
+    </div>
+</nav>
+
+<!-- JavaScript for Navigation -->
+<script>
+    function goHome() {
+        window.location.href = "home.html"; // Change to your home page URL
+    }
+    function goBack() {
+        window.location.href = "student-dashboard.html"; // Change to your home page URL
+    }
+    function logout() {
+        window.location.href = "index.html"; // Change to your logout page URL
+    }
+</script>
+
+<!-- JavaScript for Navigation -->
+<script>
+    function goHome() {
+        window.location.href = "student-dashboard.html"; // Change to your home page URL
+    }
+
+    function logout() {
+        window.location.href = "index.html"; // Change to your logout page URL
+    }
+    
+</script>
+
+
+
+<nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showSection('dashboard', this)">
+                    🏠 Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showSection('sessions', this)">
+                    📚 My Sessions
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showSection('achievements', this)">
+                    🏆 My Achievements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="nextpage.html" onclick="showSection('lsrw', this)">
+                    🎧📖📝🗣️ LSRW Practice
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showSection('profile', this)">
+                    👤 My Profile
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- JavaScript Function -->
+<script>
+    function showSection(sectionId, element) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).style.display = 'block';
+
+        // Remove active class from all links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Add active class to the clicked link
+        element.classList.add('active');
+    }
+</script>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <!-- Section - Home (Dashboard) -->
+                <div id="dashboard" class="content-section">
+                    <h2>Dashboard</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card-body bg-primary text-white text-center">
+                                <h5 class="card-title">Course Enrolled</h5>
+                                <p>French </p>
+                                <p><img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" width="65px" alt="French Flag"></p>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-primary text-white shadow-lg">
+                                <div class="card-body bg-primary">
+                                    <h5 class="card-title" style="text-align: center;">Session</h5>
+                                    <h5 class="card-title" style="text-align: center;">Completed</h5>
+                                    
+
+
+                                    <p class="card-text" style="text-align: center;">10 / 40</p>
+                                                                        <!-- Progress Bar -->
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 42.5%;" aria-valuenow="2.5" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-primary text-white shadow-lg">
+                                <div class="card-body bg-primary">
+                                    <h5 class="card-title" style="text-align: center;">Assessment</h5>
+                                    <h5 class="card-title" style="text-align: center;">Completed</h5>                                    <p class="card-text"style="text-align: center;">10 / 40</p>
+                                                                        <!-- Progress Bar -->
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 42.5%;" aria-valuenow="2.5" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-primary text-white shadow-lg">
+                                <div class="card-body bg-primary">
+                                    <h5 class="card-title">Term Assessment </h5>
+                                    <p class="card-text" style="text-align: center;">2/4</p>
+                                                                        <!-- Progress Bar -->
+                                                                        <div class="progress">
+                                                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50.5%;" aria-valuenow="2.5" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-primary text-white shadow-lg">
+                                <div class="card-body bg-primary">
+                                    <h5 class="card-title"style="text-align: center;">LSRW </h5>
+                                    <div style="text-align: center;">
+                                        <button class="btn btn-primary" onclick="location.assign('nextpage.html');">Start Practice</button>
+                                     </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+<!-- Section - My Sessions -->
+<div id="sessions" class="content-section " style="display: none;">
+    <div class="row" id="session-cards-container">
+        <!-- The session cards will be generated here -->
+    </div>
+</div>
+
+                <!-- Section - My Achievements -->
+                <div id="achievements" class="content-section" style="display: none; text-align: center;">
+                    <h2>My Achievements</h2>
+                    <p>Achievements or certifications that the student has earned.</p>
+                
+                    <!-- Achievement Badge Image -->
+                    <img src="badge.png" alt="Achievement Badge" 
+                         style="width: 150px; margin-top: 15px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);">
+                </div>
+                
+
+                <div id="profile" class="content-section" style="display: none; text-align: center;">
+                    <h2>My Profile</h2>
+                    <p>Profile details such as name, email, and other personal information.</p>
+                
+                    <!-- Profile Photo -->
+                    <div style="margin: 20px auto;">
+                        <label for="profileImage">
+                            <i class="fas fa-user-circle" style="font-size: 100px; color: #2980b9;"></i> <!-- Big Profile Icon -->
+                        </label>
+                    </div>
+                    
+                    <!-- Profile Edit Form -->
+                    <form style="max-width: 400px; margin: auto; text-align: left;">
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: bold;">Name:</label>
+                            <input type="text" id="name" class="form-control" value="John Doe" style="width: 100%; padding: 8px;">
+                        </div>
+                
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: bold;">Email:</label>
+                            <input type="email" id="email" class="form-control" value="johndoe@example.com" style="width: 100%; padding: 8px;">
+                        </div>
+                
+                        <button type="button" onclick="saveProfile()" style="background: #2980b9; color: white; padding: 10px; width: 100%; border: none; border-radius: 5px;">Save Changes</button>
+                    </form>
+                </div>
+                
+                
+                
+                
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

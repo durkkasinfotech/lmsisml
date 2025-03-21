@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tutor Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: white;
+      position: relative;
+      padding-top: 20px;
+    }
+
+    .header {
+      background: #3498db;
+      color: white;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      color: #3498db;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #e0e0e0;
+    }
+
+    .blue-design, .blue-design-bottom {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: #3498db;
+    }
+
+    .blue-design {
+      top: 0;
+      left: 0;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .blue-design-bottom {
+      bottom: 0;
+      right: 0;
+      clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+    }
+
+    .ready-section {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .ready-section h2 {
+      font-size: 28px;
+      color: #ff0000;
+      margin-bottom: 30px;
+    }
+
+    .launch-btn {
+      padding: 20px 50px;
+      font-size: 22px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .launch-btn:hover {
+      background-color: #219150;
+    }
+
+    .session-live {
+      margin-top: 30px;
+      padding: 0 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .video-section {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .video-section video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-info {
+      text-align: center;
+      padding: 20px;
+      background-color: #3498db;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 50%;
+      box-sizing: border-box;
+      margin: 0 auto;
+      color: white;
+    }
+
+    .start-again {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .start-again:hover {
+      background-color: #219150;
+    }
+
+    .moderator-chatbox {
+      flex: 1;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 10px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .moderator-chatbox h3 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .chat-input button {
+      padding: 10px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .chat-input button:hover {
+      background-color: #2575b0;
+    }
+
+    .blinking-text {
+      color: red;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Decorative Elements -->
+  <div class="blue-design"></div>
+  <div class="blue-design-bottom"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+    Tutor
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="ismllogo.jpg" alt="Logo">
+  </div>
+
+  <!-- Ready To Go Live Section -->
+  <div class="ready-section">
+    <h2 class="blinking-text">ARE YOU READY TO GO LIVE?</h2>
+    <button class="launch-btn" onclick="startSession()">Start Session</button>
+  </div>
+
+  <!-- Live Session View -->
+  <div class="session-live" id="sessionLive" style="display: none;">
+    <!-- Left side video + info + button -->
+    <div class="video-section">
+      <video controls autoplay>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="video-info">
+        <p>Session: 1</p>
+        <p>Topic: Introduction of French</p>
+        <p>Class Time: 6:00 pm - 7:00 pm</p>
+      </div>
+    </div>
+
+    <!-- Right side moderator chat -->
+    <div class="moderator-chatbox">
+      <h3>Moderator Chat</h3>
+      <div class="chat-messages" id="chatMessages">
+        <p><strong>Tutor 1:</strong> Bonjour!</p>
+        <p><strong>Moderator 1:</strong> Hi! Welcome to the session.</p>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Type something..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function startSession() {
+      document.querySelector('.ready-section').style.display = 'none';
+      document.getElementById('sessionLive').style.display = 'flex';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const message = input.value.trim();
+      if (message) {
+        document.getElementById('chatMessages').innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+        input.value = '';
+      }
+    }
+  </script>
+
+</body>
+</html>

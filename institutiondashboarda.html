@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Institution Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #42a5f5;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .header-logo {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
+      font-size: 35px;
+      margin: 0;
+      margin-left: -50px;
+    }
+
+    .back-button {
+      background-color: white;
+      color: #1a53ff;
+      border: 2px solid #1a53ff;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #1a53ff;
+      color: white;
+    }
+
+    .sidebar {
+      background-color: #e0e0e0;
+      padding: 10px;
+      width: 200px;
+      height: 100vh;
+      position: fixed;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+    }
+
+    .sidebar button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-weight: bold;
+      background-color: #42a5f5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 210px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 15px;
+    }
+
+    .lsrw-section {
+      grid-column: span 3;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 15px;
+      margin-top: 20px;
+    }
+
+    .box {
+      background-color: white;
+      padding: 10px;
+      height: 250px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 120px;
+    }
+
+    .venn-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: #1a53ff;
+      opacity: 0.5;
+    }
+
+    .circle.french { left: 20px; top: 30px; }
+    .circle.german { left: 60px; top: 30px; }
+    .circle.japanese { left: 40px; top: 60px; }
+
+    .venn-center-circle {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      top: 60px;
+      left: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #1a53ff;
+    }
+
+    .circle-label {
+      position: absolute;
+      font-weight: bold;
+      color: #1a53ff;
+    }
+
+    .label-f { top: 10px; left: 0px; }
+    .label-g { top: 10px; right: 0px; }
+    .label-j { bottom: 0px; left: 75px; }
+
+    .animated-number {
+      font-size: 35px;
+      font-weight: bold;
+      color: #1a53ff;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img class="header-logo" src="ismllogo.jpg" alt="ISML Logo" />
+    <h2 class="header-title">Institution Dashboard</h2>
+    <button onclick="history.back()" class="back-button">Logout</button>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="enrollment.html">
+      <button>Enrollment</button>
+    </a>
+    <a href="report.html">
+      <button>Report</button>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Total Students Enrolled -->
+    <div class="box">
+      <h4>Total Students Enrolled</h4>
+      <div class="venn-container">
+        <div class="circle french"></div>
+        <div class="circle german"></div>
+        <div class="circle japanese"></div>
+        <div class="venn-center-circle">987</div>
+        <div class="circle-label label-f">F</div>
+        <div class="circle-label label-g">G</div>
+        <div class="circle-label label-j">J</div>
+      </div>
+    </div>
+
+    <!-- Language-wise Enrollment -->
+    <div class="box">
+      <h4>Language-wise Enrollment</h4>
+      <canvas id="languageChart"></canvas>
+    </div>
+
+    <!-- Assessment Completion -->
+    <div class="box">
+      <h4>Assessment Completion</h4>
+      <canvas id="assessmentChart"></canvas>
+      <div style="color:#1a53ff">
+        <p>Completed: 80 students</p>
+        <p>Pending: 20 students</p>
+      </div>
+    </div>
+
+    <!-- LSRW Cards with Animated Numbers -->
+    <div class="lsrw-section">
+      <div class="box">
+        <h4>Listening</h4>
+        <div class="animated-number" data-target="120">0</div>
+        <p>Total minutes practiced in listening</p>
+      </div>
+      <div class="box">
+        <h4>Speaking</h4>
+        <div class="animated-number" data-target="95">0</div>
+        <p>Total minutes practiced in speaking</p>
+      </div>
+      <div class="box">
+        <h4>Reading</h4>
+        <div class="animated-number" data-target="78">0</div>
+        <p>Total word count in reading</p>
+      </div>
+      <div class="box">
+        <h4>Writing</h4>
+        <div class="animated-number" data-target="2300">0</div>
+        <p>Total word count in writing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js & Animated Number Scripts -->
+  <script>
+    const blue = '#1a53ff';
+
+    // Language-wise Enrollment Chart
+    new Chart(document.getElementById('languageChart'), {
+      type: 'bar',
+      data: {
+        labels: ['French', 'German', 'Japanese'],
+        datasets: [{
+          label: 'Enrollment',
+          data: [400, 350, 237],
+          backgroundColor: [blue, '#4d79ff', '#809fff']
+        }]
+      },
+      options: {
+        animation: { duration: 1000 },
+        scales: { y: { beginAtZero: true, max: 500 } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    // Assessment Completion Chart
+    new Chart(document.getElementById('assessmentChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Completed', 'Pending'],
+        datasets: [{
+          data: [80, 20],
+          backgroundColor: [blue, '#ffffff']
+        }]
+      },
+      options: {
+        animation: { duration: 1000 },
+        cutout: '70%',
+        plugins: { legend: { display: false }, tooltip: { enabled: true } }
+      }
+    });
+
+    // Animated number counter for LSRW
+    const animatedNumbers = document.querySelectorAll('.animated-number');
+    animatedNumbers.forEach(num => {
+      const target = +num.getAttribute('data-target');
+      let current = 0;
+      const increment = target / 100;
+
+      const update = () => {
+        if (current < target) {
+          current += increment;
+          num.textContent = Math.ceil(current);
+          requestAnimationFrame(update);
+        } else {
+          num.textContent = target;
+        }
+      };
+
+      update();
+    });
+  </script>
+</body>
+</html>

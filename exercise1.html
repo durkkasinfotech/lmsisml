@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn And Listen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 20px;
+            background-color: white;
+            color: #3498db;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .container-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-box {
+            width: 300px;
+            text-align: center;
+        }
+
+        .audio-box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .btn-transcription {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .right-box {
+            width: 400px;
+            padding-left: 30px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .options label {
+            background-color: #3498db;
+            color: white;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .options input {
+            margin-right: 8px;
+        }
+
+        .btn-submit {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Back Button -->
+    <div class="header">
+        <button class="back-button" onclick="goBack()">⬅ Back</button>
+        Learn And Listen
+    </div>
+
+    <div class="container-box">
+        <!-- Left Section -->
+        <div class="card left-box">
+            <div class="audio-box">
+                <i class="bi bi-volume-up" style="font-size: 40px;"></i>
+            </div>
+            <audio controls>
+                <source src="audio.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button class="btn btn-transcription">
+                <i class="bi bi-journal-text"></i> Transcription
+            </button>
+        </div>
+
+        <!-- Right Section -->
+        <div class="card right-box">
+            <div class="question">
+                <p><strong>1. De quoi est extrait le texte ?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="q1"> D’une carte postale.</label>
+                    <label><input type="radio" name="q1"> D’un passport.</label>
+                    <label><input type="radio" name="q1"> D’une chanson.</label>
+                    <label><input type="radio" name="q1"> D’une petite annonce.</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>2. Lolita est :</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="q2"> Une adresse.</label>
+                    <label><input type="radio" name="q2"> Un prénom.</label>
+                    <label><input type="radio" name="q2"> Une nationalité.</label>
+                    <label><input type="radio" name="q2"> Un numéro de téléphone.</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-submit">Submit</button>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Go to the previous page
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

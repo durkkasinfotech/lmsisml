@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Batch Sessions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F0F8FF;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 35px;
+      color: #ffffff;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #3498db;
+      padding: 30px 40px;
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      gap: 20px;
+    }
+
+    .header-title {
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex: 1;
+    }
+
+    .header-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 4px solid white;
+    }
+
+    .logout-btn {
+      background-color: #ffffff;
+      color: Black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      position: absolute;
+      left: 30px;
+      top: 30px;
+    }
+
+    .logout-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .blue-design, .blue-design-bottom {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: #3498db;
+    }
+
+    .blue-design {
+      top: 0;
+      left: 0;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .blue-design-bottom {
+      bottom: 0;
+      right: 0;
+      clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .batch-box {
+      background-color: #3498db;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      width: 200px;
+    }
+
+    .batch-box h3 {
+      margin-top: 0;
+      color: #F0F8FF;
+    }
+
+    .batch-box p {
+      margin: 8px 0;
+      color: #F0F8FF;
+    }
+
+    .start-btn {
+      margin-top: 15px;
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .start-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <button class="logout-btn" onclick="location.href='tutor-login.html'">Logout</button>
+    <h2 class="header-title">Today Batches</h2>
+    <img src="logo.jpg" alt="Logo" class="header-logo" />
+  </div>
+
+  <div class="container">
+    <!-- Batch Boxes -->
+    <div class="batch-box">
+      <h3>Batch 1</h3>
+      <p><strong>Session:</strong> 1</p>
+      <p><strong>Topic:</strong> Introduction to French</p>
+      <p><strong>Date:</strong> March 20, 2025</p>
+      <p><strong>Medium of Instruction:</strong> English</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 2</h3>
+      <p><strong>Session:</strong> 2</p>
+      <p><strong>Topic:</strong> Basic Grammar</p>
+      <p><strong>Date:</strong> March 21, 2025</p>
+      <p><strong>Medium of Instruction:</strong> French</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 3</h3>
+      <p><strong>Session:</strong> 3</p>
+      <p><strong>Topic:</strong> French Vocabulary</p>
+      <p><strong>Date:</strong> March 22, 2025</p>
+      <p><strong>Medium of Instruction:</strong> English</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 4</h3>
+      <p><strong>Session:</strong> 4</p>
+      <p><strong>Topic:</strong> Sentence Building</p>
+      <p><strong>Date:</strong> March 23, 2025</p>
+      <p><strong>Medium of Instruction:</strong> French</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 5</h3>
+      <p><strong>Session:</strong> 5</p>
+      <p><strong>Topic:</strong> French Conversations</p>
+      <p><strong>Date:</strong> March 24, 2025</p>
+      <p><strong>Medium of Instruction:</strong> English</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 6</h3>
+      <p><strong>Session:</strong> 6</p>
+      <p><strong>Topic:</strong> French Culture</p>
+      <p><strong>Date:</strong> March 25, 2025</p>
+      <p><strong>Medium of Instruction:</strong> French</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 7</h3>
+      <p><strong>Session:</strong> 7</p>
+      <p><strong>Topic:</strong> Revision Class</p>
+      <p><strong>Date:</strong> March 26, 2025</p>
+      <p><strong>Medium of Instruction:</strong> English</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+    <div class="batch-box">
+      <h3>Batch 8</h3>
+      <p><strong>Session:</strong> 8</p>
+      <p><strong>Topic:</strong> Final Assessment</p>
+      <p><strong>Date:</strong> March 27, 2025</p>
+      <p><strong>Medium of Instruction:</strong> French</p>
+      <button class="start-btn" onclick="location.href='tutor-dashboard.html'">Start Session</button>
+    </div>
+  </div>
+
+</body>
+</html>
